@@ -1,6 +1,7 @@
 package guru.springframework.sfgrecipeapp.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Recipe {
@@ -20,9 +21,15 @@ public class Recipe {
     @Lob
     private Byte[] image;
 
-    // Recipe owns this entity
+    // Recipe owns this entity (it contains the foreign key to notes)
     @OneToOne(cascade = CascadeType.ALL) // If we delete recipe we want to delete all notes related
     private Notes notes;
+
+    // Recipe owns this entity (it contains the foreign key to ingredients)
+    @OneToMany(cascade = CascadeType.ALL,   // If we delete recipe we want to delete all ingredients related
+                mappedBy = "recipe")        // Every ingredient will have property recipe
+    private Set<Ingredient> ingredients;
+
 
     public Long getId() {
         return id;
@@ -102,5 +109,13 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+    }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 }
