@@ -1,6 +1,7 @@
 package guru.springframework.sfgrecipeapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,6 +17,8 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+
+    @Lob
     private String directions;
 
     @Enumerated(value = EnumType.STRING)
@@ -34,7 +37,7 @@ public class Recipe {
     // Recipe owns this entity (it contains the foreign key to ingredients)
     @OneToMany(cascade = CascadeType.ALL,   // If we delete recipe we want to delete all ingredients related
                 mappedBy = "recipe")        // Every ingredient will have property recipe
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     @ManyToMany
     // We define Join Table because JPA creates both types of connections in this e.g. category_recipes and recipe_categories
@@ -45,7 +48,7 @@ public class Recipe {
     @JoinTable(name = "recipe_category",                    // Table name that comes out from connecting Recipe and Category
             joinColumns = @JoinColumn(name = "recipe_id"),          // Recipe is connected to new table recipe_category by attribute recipe_id
             inverseJoinColumns = @JoinColumn(name = "category_id")) // Category is connected to new table recipe_category by attribute category_id
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<>();
 
     public Long getId() {
         return id;
