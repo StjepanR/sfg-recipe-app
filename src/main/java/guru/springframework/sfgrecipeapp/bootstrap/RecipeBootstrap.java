@@ -36,7 +36,6 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         log.debug("Loading Bootstrap Data");
     }
 
-
     private List<Recipe> getRecipes() {
 
         List<Recipe> recipes = new ArrayList<>(2);

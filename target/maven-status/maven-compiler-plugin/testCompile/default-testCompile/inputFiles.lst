@@ -1,1 +1,5 @@
 /home/user/Desktop/udemy/udemy_spring_course/git/sfg-recipe-app/src/test/java/guru/springframework/sfgrecipeapp/SfgRecipeAppApplicationTests.java
+/home/user/Desktop/udemy/udemy_spring_course/git/sfg-recipe-app/src/test/java/guru/springframework/sfgrecipeapp/domain/CategoryTest.java
+/home/user/Desktop/udemy/udemy_spring_course/git/sfg-recipe-app/src/test/java/guru/springframework/sfgrecipeapp/repositories/UnitOfMeasureRepositoryIT.java
+/home/user/Desktop/udemy/udemy_spring_course/git/sfg-recipe-app/src/test/java/guru/springframework/sfgrecipeapp/services/RecipeServiceImplTest.java
+/home/user/Desktop/udemy/udemy_spring_course/git/sfg-recipe-app/src/test/java/guru/springframework/sfgrecipeapp/controllers/IndexControllerTest.java
